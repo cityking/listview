@@ -40,8 +40,16 @@ public class MainActivity extends Activity {
 
 		
 		public View getView(int position, View convertView, ViewGroup parent) {
-			TextView tv = new TextView(MainActivity.this);
-			tv.setText("cityking"+position);
+			TextView tv = null;
+			if(convertView==null){
+				tv = new TextView(MainActivity.this);
+				System.out.println("创建新的对象"+position);
+				tv.setText("cityking"+position);
+			}else{
+				tv = (TextView) convertView;
+				System.out.println("复用缓存的对象"+position);
+				tv.setText("cityking"+position);
+			}
 			return tv;
 		}
 
