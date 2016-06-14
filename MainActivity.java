@@ -25,7 +25,7 @@ public class MainActivity extends Activity {
 
 		
 		public int getCount() {
-			return 100;
+			return 8;
 		}
 
 		
@@ -40,17 +40,13 @@ public class MainActivity extends Activity {
 
 		
 		public View getView(int position, View convertView, ViewGroup parent) {
-			TextView tv = null;
+			View view;
 			if(convertView==null){
-				tv = new TextView(MainActivity.this);
-				System.out.println("创建新的对象"+position);
-				tv.setText("cityking"+position);
+				view = View.inflate(getApplicationContext(), R.layout.item, null);
 			}else{
-				tv = (TextView) convertView;
-				System.out.println("复用缓存的对象"+position);
-				tv.setText("cityking"+position);
+				view = convertView;
 			}
-			return tv;
+			return view;
 		}
 
 	}
