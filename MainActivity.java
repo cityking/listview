@@ -2,6 +2,7 @@ package com.example.listview;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -42,7 +43,14 @@ public class MainActivity extends Activity {
 		public View getView(int position, View convertView, ViewGroup parent) {
 			View view;
 			if(convertView==null){
-				view = View.inflate(getApplicationContext(), R.layout.item, null);
+				//第一种获取打气筒的方式
+//				view = View.inflate(getApplicationContext(), R.layout.item, null);
+				//第二种获取打气筒的方式
+//				view = LayoutInflater.from(getApplicationContext()).inflate(R.layout.item, null);
+				//第三种获取打气筒的方式
+				LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
+				view = inflater.inflate(R.layout.item, null);
+				
 			}else{
 				view = convertView;
 			}
